@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Typography (fonts are linked in index.html) */
+
+@font-face {
+    font-family: 'bitblast';
+    src: url(./fonts/bitblastserif-regular.otf) format('opentype');
+}
+
+.bitblast {
+    font-family: 'bitblast', serif;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+}
+
+/* CSS variables for theming */
+:root {
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --fg-rgb: 10, 10, 10;
+  --bg-alt: #f5f5f5;
+  --border: rgba(0,0,0,0.12);
+  --accent: #0d6efd;
+  --accent-fg: #ffffff;
+}
+
+html.dark {
+  --bg: #0a0a0a;
+  --fg: #ffffff;
+  --fg-rgb: 255, 255, 255;
+  --bg-alt: #141414;
+  --border: rgba(255,255,255,0.12);
+  --accent: #4f9efc;
+  --accent-fg: #0a0a0a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg: #0a0a0a;
+    --fg: #ffffff;
+    --fg-rgb: 255, 255, 255;
+    --bg-alt: #141414;
+    --border: rgba(255,255,255,0.12);
+    --accent: #4f9efc;
+    --accent-fg: #0a0a0a;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Custom scrollbar - Awwwards style */
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 1px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Awwwards-style selections */
+  ::selection {
+    background: #ffffff;
+    color: #000000;
+  }
+  
+  /* Clean focus styles */
+  :focus-visible {
+    outline: 1px solid #ffffff;
+    outline-offset: 2px;
+  }
+}
