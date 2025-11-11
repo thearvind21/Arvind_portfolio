@@ -155,7 +155,7 @@ const Contact = forwardRef<HTMLElement>((_props, ref) => {
 
               <div className="space-y-8">
                 <h3 className="text-2xl md:text-3xl font-light text-white tracking-wide">
-                  SOCIAL
+                  SOCIAL 
                 </h3>
                 <div className="space-y-6">
                   {socialLinks.map((item, index) => (
