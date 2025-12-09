@@ -3,6 +3,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import dtdsImg from '../image/DTDS.png';
 import defroxImg from '../image/Defrox.png';
 import bookingImg from '../image/Booking.png';
+import leaveAppImg from '../image/LeaveApp.png';
 
 type Category = 'all' | 'security' | 'web';
 
@@ -52,9 +53,19 @@ const Projects = forwardRef<HTMLElement>((_props, ref) => {
       category: 'web',
       year: '2023',
       description: 'Modern cinema booking platform with real-time seat selection and payment integration.',
-      tech: ['HTML', 'PHP', 'CSS', 'JavaScript ','MySQL'],
+      tech: ['HTML', 'PHP', 'CSS', 'JavaScript ', 'MySQL'],
       image: bookingImg,
       githubUrl: 'https://github.com/thearvind21/movie-ticket-booking-main',
+    },
+    {
+      id: 4,
+      title: 'Student Leave Management System',
+      category: 'web',
+      year: '2025',
+      description: 'Full-stack automation for student–faculty leave workflows with RBAC and QR-based verification.',
+      tech: ['React.js', 'REST APIs', 'authentication'],
+      image: leaveAppImg,
+      githubUrl: 'https://github.com/thearvind21/student-leave-management.git',
     },
   ];
 
@@ -96,7 +107,7 @@ const Projects = forwardRef<HTMLElement>((_props, ref) => {
       ref={ref}
       className="py-20 bg-[var(--bg)] relative overflow-hidden"
     >
-  <div className="max-w-6xl mx-auto px-5 lg:px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-5 lg:px-6 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -106,11 +117,11 @@ const Projects = forwardRef<HTMLElement>((_props, ref) => {
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-light text-[var(--fg)] mb-6 tracking-tighter">
-              Projects 
+              Projects
             </h2>
             <div className="w-20 h-px mx-auto mb-10" style={{ backgroundColor: 'var(--fg)' }}></div>
             <p className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-[color:var(--fg)]/60">
-              A collection of projects that showcase my expertise in cybersecurity, 
+              A collection of projects that showcase my expertise in cybersecurity,
               full-stack development, and innovative problem-solving.
             </p>
           </motion.div>
@@ -124,27 +135,26 @@ const Projects = forwardRef<HTMLElement>((_props, ref) => {
                   <motion.button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`relative px-6 py-3 text-sm font-medium tracking-wider uppercase transition-all duration-300 ${
-                      isActive
-                        ? ''
-                        : 'text-[color:var(--fg)]/60 hover:text-[color:var(--fg)]'
-                    }`}
+                    className={`relative px-6 py-3 text-sm font-medium tracking-wider uppercase transition-all duration-300 ${isActive
+                      ? ''
+                      : 'text-[color:var(--fg)]/60 hover:text-[color:var(--fg)]'
+                      }`}
                     style={isActive ? { color: 'var(--bg)' } : undefined}
                     aria-pressed={isActive}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                  {selectedCategory === category.id && (
-                    <motion.div
-                      className="absolute inset-0 rounded-full"
-                      style={{ backgroundColor: 'var(--fg)' }}
-                      layoutId="activeCategory"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{category.label}</span>
-                </motion.button>
+                    {selectedCategory === category.id && (
+                      <motion.div
+                        className="absolute inset-0 rounded-full"
+                        style={{ backgroundColor: 'var(--fg)' }}
+                        layoutId="activeCategory"
+                        initial={false}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                    <span className="relative z-10">{category.label}</span>
+                  </motion.button>
                 );
               })}
             </div>
@@ -163,18 +173,16 @@ const Projects = forwardRef<HTMLElement>((_props, ref) => {
               {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  className={`grid lg:grid-cols-2 gap-8 items-center ${
-                    index % 2 === 1 ? 'lg:grid-flow-dense' : ''
-                  }`}
+                  className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                    }`}
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2, duration: 0.8 }}
                 >
                   {/* Project Image */}
-                  <motion.div 
-                    className={`group relative overflow-hidden ${
-                      index % 2 === 1 ? 'lg:col-start-2' : ''
-                    }`}
+                  <motion.div
+                    className={`group relative overflow-hidden ${index % 2 === 1 ? 'lg:col-start-2' : ''
+                      }`}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
@@ -190,10 +198,9 @@ const Projects = forwardRef<HTMLElement>((_props, ref) => {
                   </motion.div>
 
                   {/* Project Info */}
-                  <motion.div 
-                    className={`space-y-3 ${
-                      index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''
-                    }`}
+                  <motion.div
+                    className={`space-y-3 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''
+                      }`}
                   >
                     <div className="space-y-2">
                       <div className="flex items-center space-x-3 text-xs font-mono" style={{ color: 'rgba(var(--fg-rgb,255,255,255),0.4)' }}>
@@ -227,10 +234,10 @@ const Projects = forwardRef<HTMLElement>((_props, ref) => {
 
                     <div className="flex flex-wrap gap-3">
                       {project.tech.map((tech) => (
-                        <span 
+                        <span
                           key={tech}
-                            className="px-2 py-0.5 text-xs font-mono rounded-full"
-                            style={{ backgroundColor: 'var(--bg-alt)', color: 'rgba(var(--fg-rgb,255,255,255),0.6)' }}
+                          className="px-2 py-0.5 text-xs font-mono rounded-full"
+                          style={{ backgroundColor: 'var(--bg-alt)', color: 'rgba(var(--fg-rgb,255,255,255),0.6)' }}
                         >
                           {tech}
                         </span>
